@@ -11,11 +11,13 @@ public class PostmanEchoTest {
     void shouldReturnSendData() {
         given()
                 .baseUri("https://postman-echo.com")
-                .body("Where is my cookies")
+                .body("some data")
+
                 .when()
                 .post("/post")
+
                 .then()
                 .statusCode(200)
-                .body("data", equalTo("Where is my cookies"));
+                .body("$.data", equalTo("some data"));
     }
 }
